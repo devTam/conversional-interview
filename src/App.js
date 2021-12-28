@@ -1,23 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import { renderComponent } from "./components/renderComponents";
+// import Data from "./utils/data.json";
+import Data2 from "./utils/data2.json";
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        renderComponent(Data2)
+      }
     </div>
   );
 }
