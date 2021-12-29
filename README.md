@@ -7,19 +7,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Add New JSON files
 
 JSON files can be found in the src directory under utils folder.
-To add JSON files you need to use the same data structure as the examples files (data.json, data2.json) in the folder.
+To add JSON files you need to use the same data structure as the example files (data.json, data2.json) in the folder.
 
 ### Load JSON files
 
-To load the Files, import the file in the App.js component inside the src directory and pass the file as a parameter to the `renderComponent` function.
+To load the Files, import the file in the `App.js` component inside the src directory and pass the imported file as a parameter to the `renderComponent` function.
 
 ## Additional requirement
 
-To trigger opening of the Modal component using one of your Button or Link components, do the following:
+To trigger opening of the Modal component using one of your selected Button or Link components, do the following:
 
-* Delete the `isOpen` property in the props field of the Modal component in your JSON file.
+* Go to your JSON file, locate the `ModalComponent` and Delete the `isOpen` property and value from the props field.
 
-* Add a `triggerModal` property to the props field of the Button/Link component in your JSON file. 
+* Locate your selected `ButtonComponent` or `LinkComponent` that will be used to trigger the modal and add a `triggerModal` property to the props field of the component with a value of `true`. 
 
 * Example of this is the `data3.json` file in the utils folder.
 
