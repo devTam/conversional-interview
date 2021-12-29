@@ -6,7 +6,7 @@ import ListComponent from "./ListComponent";
 import ParagraphComponent from "./ParagraphComponent";
 import ButtonComponent from "./ButtonComponent";
 import LinkComponent from "./LinkComponent";
-
+import ModalComponent from "./ModalComponent";
 
 const keysToComponentMap = {
   BoxComponent: BoxComponent,
@@ -16,17 +16,10 @@ const keysToComponentMap = {
   ParagraphComponent: ParagraphComponent,
   ButtonComponent: ButtonComponent,
   LinkComponent: LinkComponent,
+  ModalComponent: ModalComponent,
 };
 
-// const stylesMap = (styles) => {
-//   let mappedStyles = {};
-//   styles.forEach((style) => {
-//     mappedStyles[style.name] = style.value;
-//   });
-//   return mappedStyles;
-// };
-
-export const renderComponent = (config, title) => {
+export const renderComponent = (config) => {
   const childrenArray = config.Children
     ? Object.keys(config.Children).map((x) => {
         return {
@@ -39,17 +32,16 @@ export const renderComponent = (config, title) => {
     return createElement(
       keysToComponentMap[config.Content.type],
       {
-        // id: config.id,
         key: config.Content.type,
         props: config.Content.props,
-        titleName: title
       },
+
       childrenArray &&
         childrenArray.length > 0 &&
         childrenArray.map((child) => {
-          const childKeys = Object.keys(child).join("");
+          // const childKeys = Object.keys(child).join("");
           const childValues = Object.values(child)[0];
-          return renderComponent(childValues, childKeys);
+          return renderComponent(childValues);
         })
     );
   }
