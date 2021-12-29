@@ -1,8 +1,7 @@
 import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
-function ListComponent({ children, props: { li }, titleName }) {
-    console.log('fromlisttitle>>>', titleName);
+function ListComponent({ props: { li } }) {
   return (
     <List>
       {li.map((item, index) => {

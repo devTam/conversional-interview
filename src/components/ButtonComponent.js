@@ -1,10 +1,26 @@
 import { Button } from "@mui/material";
+import { useContext } from "react";
+import { Context } from "../context";
 
-function ButtonComponent({ children, props: { text }, titleName }) {
+function ButtonComponent({ props: { text, triggerModal } }) {
+  const { dispatch } = useContext(Context);
+
   const handleClick = () => {
-    // open modal
+    if (triggerModal) {
+      dispatch({ type: "OPEN_MODAL" });
+    }
+    console.log("Button clicked");
   };
-  return <Button onClick={handleClick}>{text}</Button>;
+  return (
+    <Button
+      fullWidth
+      sx={{ margin: ".5em 0" }}
+      variant="contained"
+      onClick={handleClick}
+    >
+      {text}
+    </Button>
+  );
 }
 
 export default ButtonComponent;
