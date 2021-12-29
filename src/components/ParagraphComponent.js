@@ -1,11 +1,7 @@
 import { Typography } from "@mui/material";
 
-function ParagraphComponent({children, props: { text }, titleName}) {
-    return (
-        <Typography>
-            {text}     
-        </Typography>
-    )
+function ParagraphComponent({ props: { text } }) {
+  return <Typography>{text}</Typography>;
 }
 
 export default ParagraphComponent;

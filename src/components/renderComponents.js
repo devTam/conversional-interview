@@ -21,11 +21,7 @@ const keysToComponentMap = {
 
 export const renderComponent = (config) => {
   const childrenArray = config.Children
-    ? Object.keys(config.Children).map((x) => {
-        return {
-          [x]: config.Children[x],
-        };
-      })
+    ? Object.keys(config.Children).map((x) => config.Children[x])
     : [];
 
   if (typeof keysToComponentMap[config.Content.type] !== "undefined") {
@@ -39,9 +35,7 @@ export const renderComponent = (config) => {
       childrenArray &&
         childrenArray.length > 0 &&
         childrenArray.map((child) => {
-          // const childKeys = Object.keys(child).join("");
-          const childValues = Object.values(child)[0];
-          return renderComponent(childValues);
+          return renderComponent(child);
         })
     );
   }
